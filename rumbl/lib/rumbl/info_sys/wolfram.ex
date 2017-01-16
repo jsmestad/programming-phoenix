@@ -16,7 +16,6 @@ defmodule Rumbl.InfoSys.Wolfram do
   defp send_results(nil, query_ref, owner) do
     send(owner, {:results, query_ref, []})
   end
-
   defp send_results(answer, query_ref, owner) do
     results = [%Result{backend: "wolfram", score: 95, text: to_string(answer)}]
     send(owner, {:results, query_ref, results})
